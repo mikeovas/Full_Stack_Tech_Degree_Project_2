@@ -49,7 +49,7 @@ function showPage(list, page) {
 The`addPagination` function
 /* This function handles calculating how many buttons are needed and dynamically adds them to the page */
 
-function handlePagination(list) {
+function addPagination(list) {
    const numberOfButtons = Math.ceil(list.length / studentsPerPage);
    paginationList.innerHTML = "";
  
@@ -64,7 +64,8 @@ function handlePagination(list) {
 
    paginationList.querySelector("button").classList.add("active");
    
-   /* This event listener handles calling our function below to change the page & add the `active` class  */
+
+   /* This event listener handles calling the function to change the page & add the `active` class to the page being displayed */
  
    paginationList.addEventListener("click", (e) => {
      const activeButton = paginationList.querySelector(".active");
@@ -84,4 +85,4 @@ function handlePagination(list) {
 
 // Call functions
 showPage(data, 1);
-handlePagination(data);
+addPagination(data);
