@@ -8,7 +8,7 @@ I am aiming for exceeds expectations and only wish to accept that grade.
 // ELEMENT SELECTORS
 const studentList = document.querySelector(".student-list");
 const paginationList = document.querySelector(".link-list");
-const searchInput = document.querySelector(".studentSearch");
+const searchInput = document.querySelector("header");
 
 
 /*
@@ -83,6 +83,44 @@ function addPagination(list) {
  }
  
 
+/* An event Listener used to dynamically search and display the desired search criteria */
+/* Function created to search by first or last name*/
+
+function searchStudent(list) {
+   html = `
+          <label for="search" class="student-search">
+            <span>Search by name</span>
+            <input id="search" placeholder="Search by name...">
+            <button type="button"><img src="img/icn-search.svg" alt="Search icon"></button>
+          </label>
+        `    
+  searchInput.innerHTML = html;
+
+  searchInput.addEventListener("input", (e) => {
+    let filteredStudents = [];
+    let inputName = searchInput.querySelector("#search").value.toLowerCase();
+  
+    for(i=0; i < data.length; i++){
+        let currentStudentFirst = list[i].name.first.toLowerCase();
+        let currentStudentLast = list[i].name.last.toLowerCase();
+    
+        if(currentStudentFirst.includes(inputName) || currentStudentLast.includes(inputName)) {
+          filteredStudents.push(list[i]);
+      };
+  
+      if(filteredStudents.length > 0) {
+        addPagination(filteredStudents);
+        showPage(filteredStudents, 1);
+      } else {
+        studentList.innerHTML = "<h3>No results found for serch Criteria. Please search again.</h3>";
+        paginationList.innerHTML = "";
+      };
+    };
+  });
+};
+
+
 // Call functions
 showPage(data, 1);
 addPagination(data);
+searchStudent(data);
