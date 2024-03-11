@@ -88,6 +88,7 @@ function addPagination(list) {
 
 function searchStudent(list) {
    html = `
+          <h2>Students</h2>
           <label for="search" class="student-search">
             <span>Search by name</span>
             <input id="search" placeholder="Search by name...">
