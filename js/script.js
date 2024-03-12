@@ -10,7 +10,6 @@ const studentList = document.querySelector(".student-list");
 const paginationList = document.querySelector(".link-list");
 const searchInput = document.querySelector("header");
 
-
 /*
 The `showPage` function:
 /* This function will calculate how many and which students to dynamically show on the current page */
@@ -44,7 +43,6 @@ function showPage(list, page) {
    }
  }
  
-
 /*
 The`addPagination` function
 /* This function handles calculating how many buttons are needed and dynamically adds them to the page */
@@ -64,7 +62,6 @@ function addPagination(list) {
 
    paginationList.querySelector("button").classList.add("active");
    
-
    /* This event listener handles calling the function to change the page & add the `active` class to the page being displayed */
  
    paginationList.addEventListener("click", (e) => {
@@ -82,7 +79,6 @@ function addPagination(list) {
    });
  }
  
-
 /* An event Listener used to dynamically search and display the desired search criteria */
 /* Function created to search by first or last name*/
 
@@ -119,7 +115,6 @@ function searchStudent(list) {
     };
   });
 };
-
 
 // Call functions
 showPage(data, 1);
