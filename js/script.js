@@ -109,7 +109,7 @@ function searchStudent(list) {
         addPagination(filteredStudents);
         showPage(filteredStudents, 1);
       } else {
-        studentList.innerHTML = "<h3>No results found for serch Criteria. Please search again.</h3>";
+        studentList.innerHTML = "<h3>No results found for search criteria. Please search again.</h3>";
         paginationList.innerHTML = "";
       };
     };
